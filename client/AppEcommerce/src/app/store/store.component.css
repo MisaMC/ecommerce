@@ -1,0 +1,12 @@
+.pricing-table{
+    color: #2dca35;
+    padding: 20px;
+    margin: auto;
+    font-size: 40px;
+    font-weight: 500;
+    font-family:  'Arial';
+}
+.list-group-item{
+    cursor: pointer;
+    color: royalblue ;
+}
