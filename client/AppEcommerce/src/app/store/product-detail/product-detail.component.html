@@ -1,0 +1,18 @@
+<div class="container">
+ <div class="row">
+
+  <div class="card border-info mb-3">
+    <div class="card-header">
+      <h3>{{product.productName}}</h3>
+    </div>
+    <div class="card-body">
+        <img class="card-img-top" src="http://placehold.it/700x200">
+      <h4 class="card-text">Vendor: {{product.productVendor}}</h4>
+      <h4 class="card-text">Scale: {{product.productScale}}</h4>
+      <h4 class="card-text">Price: {{product.MSRP}}</h4>
+      <p class="card-text">{{product.productDescription}}</p>
+      <button class="btn btn-danger" (click)="addCart(product)">Add to Cart</button>
+    </div>
+  </div>
+ </div>
+</div>

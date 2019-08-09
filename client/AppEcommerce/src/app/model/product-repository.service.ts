@@ -44,6 +44,16 @@ export class ProductRepositoryService {
      return this.vendor;
   }
 
+  getProductById(productCode :string){
+    let productSelected : Product;
+    this.products.filter((product: Product)=>{
+      if (product.productCode === productCode){
+        productSelected = product;
+      }
+    } );
+    return productSelected
+  };
+
 
 
 }
