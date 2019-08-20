@@ -10,6 +10,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RouterLink, RouterModule } from '@angular/router';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     CartComponent,
     CheckoutComponent,
     PageNotFoundComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    OrdersComponent
   ],
   imports: [
     CommonModule,

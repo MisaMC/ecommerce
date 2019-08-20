@@ -11,6 +11,16 @@ class OrderController extends Controller {
     return json_encode($message);
   }
 
+  public function getOrder($request, $response) {
+    $message = $this->OrderModel->getOrder();
+    return json_encode($message);
+  }
+
+  public function getOrdersDetails($request, $response) {
+    $message = $this->OrderModel->getOrdersDetails();
+    return json_encode($message);
+  }
+
 }
 
 ?>

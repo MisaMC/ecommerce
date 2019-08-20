@@ -61,6 +61,58 @@ class OrderModel extends Models {
 
   }
 
+  public function getOrdersDetails() {
+    $sth = $this->db->pdo->prepare('SELECT 
+      orderNumber,
+      products.productName,
+      orderdetails.productCode,
+      quantityOrdered,
+      priceEach,
+      orderLineNumber FROM orderdetails
+      INNER JOIN products
+      ON orderdetails.productCode = products.productCode'
+    );
+    $sth->execute();
+    if (!is_null($sth->errorInfo()[2]) ) {
+      return array(
+        'success' => false,
+        'description' => $sth->errorInfo()[2]
+      );
+    } else if (empty($sth)) {
+      return array('notFound' => true, 'description' => 'The result is empty');
+    }
+    return array(
+      'success' => true,
+      'description' => 'The orderDetails was found',
+      'orderDetails' => $sth->fetchAll($this->db->pdo::FETCH_ASSOC)
+    );
+  }
+
+  public function getOrder() {
+    $result = $this->db->select('orders',[
+      'orderNumber',
+      'orderDate',
+      'requiredDate',
+      'shippedDate',
+      'status',
+      'comments',
+      'customerNumber'
+    ]);
+
+    // !Conexion.
+    if (!is_null($this->db->error()[1])) {
+      return array('error' => true,'description' => $this->db->error()[2]);
+    } else if (empty($result)) { // sin Datos
+      return array('notFound' => true, 'description' => 'The result is empty');
+    }
+
+    return array(
+      'success' => true,
+      'description' => 'The orders were found',
+      'orders' => $result
+    );
+  }
+
 }
 
 ?>
